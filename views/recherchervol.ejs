@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Résultats de la recherche de chambre</title>
+    <script src="https://kit.fontawesome.com/845105b0c2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="recherchervol.css">
+</head>
+<body>
+    <div class="div1">
+        <img src="img/C__7_-removebg-preview.png" class="logo" alt="">
+        <ul>
+
+          <li><a href="/index">Accueil</a> </li>
+          <li><a href="/vol"> Vols</a></li>
+          <li><a href="voiture">Voitures</a> </li>
+            <% if (loggedIn) { %>
+                <li style=" height: 45px;border-radius: 10px; font-weight: bold;background-color: red; color: white;display: flex; align-items: center;padding-right: 10px;padding-left: 10px;float: right;margin-top: 0%;">
+                  <img  src="img/profil.png" alt="to">
+                  <a href=""> <%= userId %></a> 
+                  <a class="toggle-dropdown-menu header-block no-decoration" href="#" aria-haspopup="true" style="margin-left:7px;color:white">
+                    <span class="point" id="dropdown-toggle" onclick="toggleDropdownMenu()">▾</span>
+                  </a> 
+                  <ul class="ucl" style="min-width: 200px; padding: 5px 10px;background: #fff;border: 1px solid #c8c8c8;box-shadow: 0 2px 2px 0 rgba(0,0,0,0.3);list-style: none;list-style-image: none;
+                        list-style-image: none;border-radius: 4px;position: absolute; right: 0px; top: 105px; z-index: 3; display: none;">
+                    <li><a style="color: #0078b0;font: inherit;  font-size: inherit;text-decoration: none;-webkit-transition: all 0.1s linear 0s;
+                      -moz-transition: all 0.1s linear 0s;transition: all 0.1s linear 0s" href="">Mon Profil</a></li>
+                    <li><a style="color: #0078b0;font: inherit;  font-size: inherit;text-decoration: none;-webkit-transition: all 0.1s linear 0s;
+                      -moz-transition: all 0.1s linear 0s;transition: all 0.1s linear 0s" href="">Deconnecter</a></li>
+                  </ul>
+                </li>
+                <% } else { %>
+  
+                  <li class="ins"><a href="inscription">S'inscrires</a> </li>
+                  <li class="ins"><a href="connexion">Se connecter</a> </li>
+  
+                <% } %>
+  
+        </ul>
+        
+    </div>
+
+
+    <h1>Les vols disponibles </h1>
+       
+    <div id="principal">
+        <% if (results.length > 0) { %>
+            <% results.forEach(function(result) { %>
+              <div id="form-<%= result.id %>" style="display: none;margin-bottom: 2%">
+                <!-- Formulaire de modification -->
+                <form method="POST" action="/modifier/<%= result.id %>" style="width: 40%;margin: auto;padding: 10px;border: 2px solid white;border-radius: 10px;">
+                  <div style="width: 30%; float: left;margin-left: 10%;">  
+                    <label >Compagnie</label>                
+                    <input type="text" name="compagnie" value="<%= result.compagnie %>" style="width: 80%;font-size: 20px;padding: 10px;border-radius: 10px;"><br>
+                    <label for="">Aeroport départ</label><br>
+                    <input type="text" name="aeroportdep" value="<%= result.aeroportdep %>" style="width: 80%;font-size: 20px;padding: 10px;border-radius: 10px;"><br>
+                    <label for="">Aeroport arrivée</label><br>
+                    <input type="text" name="aeroportarr" value="<%= result.aeroportarr %>" style="width: 80%;font-size: 20px;padding: 10px;border-radius: 10px;"><br>
+                  </div>
+                  <div style="width: 20%;float: right;margin-right: 10%;">                    
+                    <label for="">Heure depart</label><br>
+                    <input type="text" name="heuredep" value="<%= result.heuredep %>" style="width: 80%;font-size: 20px;padding: 10px;border-radius: 10px;"><br>
+                    <label for="">Heure Arrivée</label><br>
+                    <input type="text" name="heurearr" value="<%= result.heurearr %>" style="width: 80%;font-size: 20px;padding: 10px;border-radius: 10px;"><br>
+                    <label for="">Prix</label><br>
+                    <input type="text" name="prix" value="<%= result.prix %>" style="width: 80%;font-size: 20px;padding: 10px;border-radius: 10px;"><br>
+                  </div>
+                  <div style="margin-top: 30%;width: 50%;margin-left: 28%;">
+                    <button type="submit" style="font-size: 20px;padding: 10px;border-radius: 10px;cursor:pointer">Enregistrer les modifications</button>
+                    <button type="button" onclick="hideForm('<%= result.id %>')" style="font-size: 20px;padding: 10px;border-radius: 10px;">Annuler</button>
+                  </div> 
+                </form>
+              </div>
+            <div class="div2" id="div2">
+                <p style="color: white;font-size: 17px;letter-spacing: 0.1em;font-weight: bold;float: left;width: 50%;">Meilleur Vol</p>
+                <p style="float: right;margin-right: 5%;width: 30%;">
+                    <% if (status === 'editeur') { %>
+                    
+                        <% const matchingResultats = resultats.filter(resultat => resultat.id_corr === result.id); %>
+                        <% const allAreModification = matchingResultats.some(resultat => resultat.statut === 'Modification'); %>
+                        <% const allAreSuppression = matchingResultats.some(resultat => resultat.statut === 'Suppression'); %>
+                        
+                        <% if (allAreModification) { %>
+                          <button id="<%= result.id %>" onclick="toggleForm('<%= result.id %>')" class="modif" disabled>Modifier</button>
+                        <% } else { %>
+                          <button id="<%= result.id %>" onclick="toggleForm('<%= result.id %>')" class="modif">Modifier</button>
+                        <% } %>
+                    
+                        <% if (allAreSuppression) { %>
+                          <button id="<%= result.id %>" onclick="supprimer('<%= result.id %>')" class="sup" disabled>Supprimer</button>
+                        <% } else { %>
+                          <button id="<%= result.id %>" onclick="supprimer('<%= result.id %>')" class="sup">Supprimer</button>
+                        <% } %>
+              
+                    <% } %>       
+              </p>   
+r()
+                <div class='d1'>
+                    <ul class='ul'>
+                        <li>
+                            
+                            <br><br>
+                            <span class="v1">Depart à</span>
+                            <span class="v4">Arrive à</span>
+                            <br>
+                            <span><img src="img/alarme.png" class="img1" ></span>
+                            <span class="v11"> <%= result.heuredep %></span>
+                            <span><img src="img/avion.png" class="img3" ></span>
+                            <span class="v44"> <%= result.heurearr %></span>
+                            <span><img src="img/alarme.png" class="img2" ></span>
+                            <br><br><br>
+                            <span class="v5"> <%= result.aeroportdep %>...</span>
+                            <span class="v6"> <%= result.aeroportarr %>...</span>
+                            <br><br><br>
+                            <span class="v9"> <span class="v10">Tarif : </span><%= result.prix %>...</span>
+                            <span class="v44"> <span class="v10"></span><%= result.compagnie %></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="d2">
+                    <span class="v12">Voyager en toute sécurité</span>
+                    <span><img src="img/cadenas.png" class="img4" ></span>
+                    <br><br><br>
+                    <span><img src="img/prix.png" class="img5" ></span>
+                    <button class="btn">Reserver</button>
+                </div>
+            </div>
+            <% }) %>
+            <% } else { %>
+                <p>Aucun résultat trouvé pour cette recherche.</p>
+              <% } %>    
+          </div>
+              
+          
+
+      <script>
+
+      function toggleForm(id) {
+        const form = document.getElementById('form-' + id);
+        const div2 = document.getElementById('principal');
+        form.style.display = form.style.display === 'none' ? 'block' : 'none';
+      }
+
+      function hideForm(id) {
+        const form = document.getElementById('form-' + id);
+        const div2 = document.getElementById('principal');
+        form.style.display = 'none';
+      }
+
+      function supprimer(id) {
+        if (confirm("Voulez-vous appliquer une supression ?")) {
+          fetch(`/supprimer/${id}`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({}) })
+            .then(response => {
+              if (response.ok) {
+                console.log("Données envoyées à l'administrateur");
+              } else {
+                console.error('Erreur lors de la sauvegarde des données');
+              }
+            })
+            .catch(error => {
+              console.error('Erreur lors de la sauvegarde des données :', error);
+            });
+        }
+      }
+
+      </script>
+
+</body>
+</html>
+
+
+

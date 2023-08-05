@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="voiture.css">
+    <title>Location de voiture</title>
+    <link rel="stylesheet" href="bootstrap-grid.min.css">
+</head>
+<body>
+    <div class="div0">
+        <div class="div1">
+            <img src="img/logo-removebg-preview.png"class="im">
+            <ul>
+              <% if (loggedIn) { %>
+                <li style=" height: 45px;border-radius: 10px; font-weight: bold;background-color: red; color: white;display: flex; align-items: center;padding-right: 10px;padding-left: 10px;">
+                  <img  src="img/profil.png" alt="to">
+                  <a href=""> <%= userId %></a> 
+                  <a class="toggle-dropdown-menu header-block no-decoration" href="#" aria-haspopup="true" style="margin-left:7px;color:white">
+                    <span class="point" id="dropdown-toggle" onclick="toggleDropdownMenu()">▾</span>
+                  </a> 
+                  <ul class="ucl" style="min-width: 200px; padding: 5px 10px;background: #fff;border: 1px solid #c8c8c8;box-shadow: 0 2px 2px 0 rgba(0,0,0,0.3);list-style: none;list-style-image: none;
+                        list-style-image: none;border-radius: 4px;position: absolute; right: 0px; top: 105px; z-index: 3; display: none;">
+                    <li><a style="color: #0078b0;font: inherit;  font-size: inherit;text-decoration: none;-webkit-transition: all 0.1s linear 0s;
+                      -moz-transition: all 0.1s linear 0s;transition: all 0.1s linear 0s" href="">Mon Profil</a></li>
+                    <li><a style="color: #0078b0;font: inherit;  font-size: inherit;text-decoration: none;-webkit-transition: all 0.1s linear 0s;
+                      -moz-transition: all 0.1s linear 0s;transition: all 0.1s linear 0s" href="">Deconnecter</a></li>
+                  </ul>
+                </li>
+                <% } else { %>
+  
+                  <li class="ins"><a href="inscription">S'inscrires</a> </li>
+                  <li class="ins"><a href="connexion">Se connecter</a> </li>
+  
+                <% } %>
+                <li><a href="index">Accueil</a> </li>
+                <li><a href="vol"> Vols</a></li>
+                <li><a href="chambre">Chambres</a> </li>
+
+            </ul>
+        </div>
+      </div>
+      
+      <form method="POST" action="/recherchevoiture" >
+
+            <div class="div10">
+              <div class="div11">
+                    <div>
+                      <label for="modele" class="label2">Modèle</label><br><br>
+                      <input type="text" id="modele" name="modele" class="labmod"placeholder="modèle">
+                    </div>  
+                 
+                    <div class="prix">
+                      <label for="prix" class="label2">Prix</label><br><br>
+                      <select name="prixSelectionne" id="prixSelectionne" class="labmod1">
+                          <option value="">Choisir prix</option>
+                          <option value="50-70">50€- 70€</option>
+                          <option value="71-91">71€- 91€</option>
+                          <option value="92-112">92€- 112€</option>
+                          <option value="113-200">113€- 200€</option>
+                      </select>
+                  </div>
+            </div>
+              <button class="btn1">Rechercher</button>
+            </div>
+      </form>
+          
+        
+      
+    <h1 class="h11">Nos offres de voitures</h1>
+    <p class="p">Profitez de nos voitures de luxe.</p>
+    <div class="container-fluid df">
+      <div class="row  justify-content-around">
+        <div class=" col-10 col-sm-11 col-md-3 col-lg-3  mb8  div2">
+            <div class="div21">
+                <p>Réserver</p>
+            </div>
+            <p class="p2">Nouveauté</p>
+            <p class="p3">Lamborghini HPEV (High <br> Performance Electrified Vehicle).</p>
+       </div>
+       <div class="col-10 col-sm-11 col-md-3 col-lg-3  mb8 div3">
+            <div class="div21">
+                <p>Réserver</p>
+            </div>
+            <p class="p2">Nouveauté</p>
+            <p class="p3">BMW 420d xDrive 190 ch Gran <br> Coupe</p>
+       </div>
+       <div class="col-10 col-sm-11  col-md-3 col-lg-3  mb8 div4">
+            <div class="div21">
+                <p>Réserver</p>
+            </div>
+            <p class="p2">Nouveauté</p>
+            <p class="p3">Lamborghini Sian, hybride <br> essence</p>
+       </div>
+      </div>
+
+    </div>
+   <h1 class="h1 text-center text-md-left text-lg-right">Voitures de location pas chères</h1>
+   <div class="container-fluid df">
+    <div class="row  justify-content-around">
+       <div class="col-10 col-sm-11  col-md-3 col-lg-3 ">
+         <img src="img/preview.jpg" class="img1" >
+         <label>
+             <span>Qualité et expérience </span><br>
+             Expert depuis plus de 10 ans <br>
+             pour vous aider à louer une <br>
+             voiture dans le monde entier.
+         </label>
+       </div>
+       <div class="col-10 col-sm-11  col-md-3 col-lg-3 ">
+         <img src="img/annuler.jpg" class="img1">
+         <label>
+             <span>Annulation gratuite</span><br>
+             Annulez sans frais jusqu'à 24h <br>
+             avant la location.
+         </label>
+       </div>
+       <div class="col-10 col-sm-11  col-md-3 col-lg-3 ">
+         <img src="img/like.jpg" class="img1">
+         <label>
+             <span>Excellent service</span><br>
+             30000 clients ont donnés leur <br>
+             avis.4/5
+         </label>
+       </div>
+
+     </div>
+   </div>
+   <div class="container-fluid c2">
+    <div class="row  justify-content-around">
+       <div class="col-10 col-sm-11  col-md-3 col-lg-3  mb8 div6">
+            <div class="div21">
+                <p>Réserver</p>
+            </div>
+            <p class="p2">Nouveauté</p>
+            <p class="p3">Lamborghini HPEV (High <br> Performance Electrified Vehicle).</p>
+        </div>
+        <div class="col-10 col-sm-11  col-md-3 col-lg-3  mb8 div7">
+            <div class="div21">
+                <p>Réserver</p>
+            </div>
+            <p class="p2">Nouveauté</p>
+            <p class="p3">BMW 420d xDrive 190 ch Gran <br> Coupe</p>
+        </div>
+        <div class="col-10 col-sm-11  col-md-3 col-lg-3  div8">
+            <div class="div21">
+                <p>Réserver</p>
+            </div>
+            <p class="p2">Nouveauté</p>
+            <p class="p3">Lamborghini Sian, hybride <br> essence</p>
+        </div>
+     </div>
+   </div>
+
+    <h1 class=" h1 text-center text-md-left text-lg-right p4"> Nos Marques</p>
+      <div class="container-fluid df">
+        <div class="row  justify-content-around">
+          <div class="col-10 col-sm-11  col-md-3 col-lg-3 ">
+            <img src="img/Audi_logo.png" class="img4">
+          </div>
+          <div class="col-10 col-sm-11  col-md-3 col-lg-3 ">
+            <img src="img/Lamborghini-Logo.png" class="img4">
+          </div>
+          <div class="col-10 col-sm-11  col-md-3 col-lg-3 ">
+            <img src="img/logo-peugeot.jpg" class="img4">
+          </div>
+        </div>
+        <div class="row justify-content-between">
+          <div class="col-10 col-sm-11  col-md-3 col-lg-3 ">
+            <img src="img/logo-citroen.jpg" class="img4">
+          </div>
+          <div class="col-10 col-sm-11  col-md-3 col-lg-3 ">
+            <img src="img/Mercedes-Benz-Logo.png" class="img4">
+          </div>
+          <div class="col-10 col-sm-11  col-md-3 col-lg-3 ">
+            <img src="img/Hyundai-Logo.png" class="img4">
+          </div>
+        </div>
+      </div>
+
+      <div class="container-fluid f">
+        <div class="row  justify-content-around R">
+          <div class="col-11 col-sm-11 col-md-3 col-lg-3">
+            <img class="lo" src="img/C__7_-removebg-preview.png" alt=>
+            <div class="contact">
+              <p>Tel :  33  855  23  24 ,  (+221)  77  345  10  20</p>
+              <p>Adresse:  Av Cheikh Anta  Diop</p>
+              <p>Email:  cmdservice@gmail.com</p>
+            </div>
+            <div class="reseaux">
+              <p>Retrouvez nous sur les réseaux sociaux</p>
+              <div class="imRe">
+                <img class="i1" src="img/face.jpeg" alt="l1">
+                <img class="i2" src="img/insta.jpeg" alt="l3">
+                <img class="i3" src="img/whtsap.jpeg" alt="l2">
+                <img class="i4" src="img/twitter.jpeg" alt="l4">
+                <img class="i5" src="img/linkedin.jpeg" alt="l6">
+              </div>
+            </div>
+          </div>
+          <div class="col-11 col-sm-11 col-md-3 col-lg-3">
+            <p class="pf21">Partenariat</p>
+            <p class="pf22">
+              <span>Aeroport Blaise Diagne</span> </br>
+                <span>Aeroport Lepold Sedar Senghor</span> </br>
+                  <span>Radisson</span> </br>
+                    <span>VDN</span> </br></br>
+                      <span>Diamniadio</span> </br>
+                      <span>BMW</span> </br>
+                        <span>FORD</span>
+            </p>
+          </div>
+          <div class="col-11 col-sm-11 col-md-3 col-lg-3">
+            <p class="pf31">A propos de nous</p>
+            <p class="pf32">
+              CMD est une entreprise proposant un ensemble complet
+              de services comprenant la réservation de vols, la location de
+              voitures et la réservation de chambres d'hôtel. Notre objectif est
+              de rendre votre expérience de voyage agréable en vous offrant des
+              solutions pratiques et adaptées à vos besoins. Faites-nous confiance
+              pour prendre en charge tous les aspects de votre voyage afin que vous
+              puissiez vous concentrer sur la découverte et la détente.
+            </p>
+          </div>
+
+        </div>
+      </div>
+  <script src="" async defer></script>
+</body>
+</html>
+

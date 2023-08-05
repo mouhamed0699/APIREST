@@ -1,0 +1,378 @@
+body{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.animations{
+    width: 100%;
+    height: 900px;
+
+    box-shadow: 0px 0px 10px #777;
+    background-color: #EDEDED;
+    background-size: cover;
+    animation: fondu 5s   ease-in-out  infinite both;
+    padding-top: 0%;
+}
+
+ .animations:hover{
+    animation-play-state: paused;
+}
+
+@keyframes fondu{
+    0%{background-image: url("../img/ch1.jpeg");}
+    50%{background-image: url("../img/ch2.jpeg");}
+    100%{background-image: url("../img/ch3.jpeg");}
+}
+
+.div1{
+  position: fixed;
+    width: 100%;
+    height: 120px;
+    background-color: rgba(118, 114, 116, 0.5);
+    display: flex;
+    justify-content: space-between;
+}
+li{
+    display: inline;
+    list-style-type: none;
+    float: right;
+    margin-right: 15px;
+    font-size: 20px;
+    margin-top: 40px;
+}
+li a{
+    color: white;
+    text-decoration: none;
+}
+.ins{
+    margin-top: 20px;
+    background-color: #7D9878;
+    border-radius: 25px;
+    padding: 15px;
+}
+
+
+
+.remise{
+/* width: 722px;
+height: 286px;
+margin-left: 80px; */
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 96px;
+line-height: 116px;
+display: flex;
+align-items: center;
+}
+
+.remise1{
+/* width: 425px;
+
+margin-left: 80px; */
+height: 155px;
+margin-top:-40px;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 28px;
+line-height: 34px;
+align-items: center;
+color: #000000;
+}
+.dcont1{
+  margin-top: 60px
+}
+.image1{
+/* float: right; */
+width: 100%;
+height: 616px;
+/* margin-top: -570px; */
+border-radius: 20px;
+margin-right: 70px;
+}
+
+.button1{
+height: 85px;
+margin-left: 40px;
+margin-top: -4px;
+justify-content: center;
+background: #6F0808;
+border-radius: 30px;
+font-family: 'Inter';
+font-style: normal;
+font-weight:bold;
+font-size: 24px;
+color: #FCFBFB;
+}
+
+.remise1detail{
+margin-left: 40px;
+
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 17px;
+line-height: 27px;
+display: flex;
+align-items: center;
+color: #000000;
+}
+
+ .p1{
+    font-size: 64px;
+    font-weight: bold;
+}
+ .p2{
+    margin-top: -40px;
+    font-size: 22px;
+}
+.mb8 {
+    margin-bottom: 12.5rem!important;
+}
+
+.image11,.image2,.image3,.image4,.image5,.image6{
+margin-top:50px ;
+width: 100%px;
+height: 409px;
+
+border-radius: 30px;
+background-size: cover;
+background-position: center;
+
+}
+.image11{
+    background-image: url('../img/image11.jpg');
+}
+.image2{
+    background-image: url('../img/image2.jpg');
+}
+.image3{
+    background-image: url('../img/image3.jpg');
+}
+
+.image4{
+    background-image: url('../img/image4.jpg');
+
+}
+
+.image5{
+    background-image: url('../img/yass_hotel_almadies-4.jpg');
+
+}
+
+.image6{
+    background-image: url('../img/ndiambour-hotel-_-residences-juin-2013-_178_.jpg');
+
+}
+
+
+.notenom{
+  width: 100%;
+  height: 63px;
+text-align: center;
+align-items: center;
+margin-top: 430px;
+font-family: 'Inter';
+font-style: normal;
+font-weight: bold;
+font-size: 24px;
+}
+
+.button2{
+align-items: center;
+margin-top: 20px;
+width: 100%;
+height: 63px;
+background: #3B1C7B;
+border-radius: 30px;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size: 22px;
+color: white;
+text-align: center;
+
+}
+
+.communaute{
+text-align: center;
+align-items: center;
+max-width: fit-content;
+background: #3B1C7B;
+border-radius: 30px;
+font-family: 'Itim';
+font-style: normal;
+font-weight: bold;
+font-size: 40px;
+color: white;
+padding-top: 10px;
+padding-bottom: 10px;
+padding-left: 7px;
+padding-right: 7px;
+
+}
+
+.animation2{
+    margin-top: 50px;
+    width: 100%;
+    height: 700px;
+    border-radius: 40px;
+    animation: animer infinite 20s ;
+    background-size: cover;
+
+}
+
+
+@keyframes animer{
+    0%{background-image: url("../img/radisson.jpg");}
+    10%{background-image: url("../img/radisson1.png");}
+    20%{background-image: url("../img/fc3d30c6cd7c4aeb2ac708716f3a22.jpg");}
+    30%{background-image: url("../img/LE_NDIAMBOUR_HOTEL_ET_RESIDENCE-Dakar-Seminar_room-612772.jpg");}
+    40%{background-image: url("../img/4dafd49dc14f3dd7c56a441df60440.jpg");}
+    50%{background-image: url("../img/4483cb070ce5ee7cec276531abf367.jpg");}
+    60%{background-image: url("../img/57a0db6896361796e00f2e38030092.jpg");}
+    70%{background-image: url("../img/chambre-16.jpg");}
+    80%{background-image: url("../img/yass\ hotel.jpg");}
+    90%{background-image: url("../img/ndiambour-dec-2014-calao-production-_114_.jpg");}
+    100%{background-image: url("../img/ndiambour-hotel-_-residences-juin-2013-_178_.jpg");}
+}
+
+
+.voirplus{
+  width: 198px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background: #3B1C7B;
+  border-radius: 30px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  text-align: center;
+  color: white;
+  text-align: center;
+  margin-top: 10px;
+}
+.commu{
+  text-align: center;
+}
+.f{
+
+    background-color: #09090B;
+
+    margin-top: 50px;
+    justify-content: center;
+
+
+  }
+.R{
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: center;
+}
+.imRe{
+  display: flex;
+  justify-content: center;
+}
+  .f1,.f2,.f3{
+    width: 25%;
+    margin-left: 50px;
+    height: 400px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+
+    }
+.pf21,.pf31{
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff;
+}
+.pf22,.pf32{
+  font-size: 20px;
+  color: #ffffff;
+}
+
+
+ .lo{
+  width: 100px;
+  height: 100px
+}
+.contact{
+  margin-top: 20px
+}
+.contact p{
+  color: #ffffff;
+}
+.reseaux{
+  display: flex;
+  flex-direction: column;
+}
+.reseaux p{
+  color: #ffffff
+}
+/* .imRe {
+  display: flex;
+} */
+.i1,.i2,.i3,.i4,.i5{
+  width: 35px;
+  height: 35px;
+  float: left;
+  margin-left: 10px;
+}
+
+.di0{
+  margin-top: -30px;
+}
+
+.div10 {
+  height: auto;
+  margin: auto;
+  background-color: #eff1f1;
+  border-radius: 20px;
+  padding: 20px;
+}
+.div11 label,
+.div11 input,
+.div11 select {
+  margin-bottom: 10px;
+  margin-right: 20px;
+  width: 160px;
+}
+.label1 {
+  font-size: 25px;
+  font-weight: bold;
+}
+.label2 {
+  font-size: 25px;
+}
+.form-control {
+  font-size: 20px;
+  border-radius: 10px;
+  height: 50px;
+}
+.btn1 {
+  display: block;
+  max-width: 150px;
+
+  padding: 15px;
+  color: white;
+  background-color: #C8299B;
+  border: none;
+  border-radius: 18px;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+@media (max-width: 767px) {
+  .div11 .row {
+    flex-wrap: wrap;
+  }
+  .div11 .row > div {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+}
+

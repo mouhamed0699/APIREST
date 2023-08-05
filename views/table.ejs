@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>DarkPan - Bootstrap 5 Admin Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-fluid position-relative d-flex p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+
+        <!-- Sidebar Start -->
+        <div class="sidebar pe-4 pb-3">
+            <nav class="navbar bg-secondary navbar-dark">
+                <a href="dash.ejs" class="navbar-brand mx-4 mb-3">
+                    <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>Dashboard</h3>
+                </a>
+                <div class="d-flex align-items-center ms-4 mb-4">
+                    <div class="position-relative">
+                        <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                        <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
+                    </div>
+                    <div class="ms-3">
+                        <h6 class="mb-0">Jhon Doe</h6>
+                        <span>Admin</span>
+                    </div>
+                </div>
+                <div class="navbar-nav w-100">
+                    <a href="visualisation" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <div class="nav-item dropdown">
+                        <!-- <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Elements</a> -->
+                        <div class="dropdown-menu bg-transparent border-0">
+                            <!-- <a href="button.html" class="dropdown-item">Buttons</a>
+                            <a href="typography.html" class="dropdown-item">Typography</a>
+                            <a href="element.html" class="dropdown-item">Other Elements</a> -->
+                        </div>
+                    </div>
+                    <!-- <a href="widget.html" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Widgets</a>
+                    <a href="form.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Forms</a>
+                    <a href="table.html" class="nav-item nav-link active"><i class="fa fa-table me-2"></i>Tables</a>
+                    <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a> -->
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Pages</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                            <a href="signin.html" class="dropdown-item">Sign In</a>
+                            <a href="signup.html" class="dropdown-item">Sign Up</a>
+                            <!-- <a href="404.html" class="dropdown-item">404 Error</a>
+                            <a href="blank.html" class="dropdown-item">Blank Page</a> -->
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <!-- Sidebar End -->
+
+
+        <!-- Content Start -->
+        <div class="content">
+            <!-- Navbar Start -->
+            <nav class="navbar navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
+                <a href="index.html" class="navbar-brand d-flex d-lg-none me-4">
+                    <h2 class="text-primary mb-0"><i class="fa fa-user-edit"></i></h2>
+                </a>
+                <a href="#" class="sidebar-toggler flex-shrink-0">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <form class="d-none d-md-flex ms-4">
+                    <input class="form-control bg-dark border-0" type="search" placeholder="Search">
+                </form>
+                <div class="navbar-nav align-items-center ms-auto">
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <i class="fa fa-envelope me-lg-2"></i>
+                            <span class="d-none d-lg-inline-flex">Message</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+                            <a href="#" class="dropdown-item">
+                                <div class="d-flex align-items-center">
+                                    <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                    <div class="ms-2">
+                                        <h6 class="fw-normal mb-0">Jhon send you a message</h6>
+                                        <small>15 minutes ago</small>
+                                    </div>
+                                </div>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item">
+                                <div class="d-flex align-items-center">
+                                    <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                    <div class="ms-2">
+                                        <h6 class="fw-normal mb-0">Jhon send you a message</h6>
+                                        <small>15 minutes ago</small>
+                                    </div>
+                                </div>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item">
+                                <div class="d-flex align-items-center">
+                                    <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                    <div class="ms-2">
+                                        <h6 class="fw-normal mb-0">Jhon send you a message</h6>
+                                        <small>15 minutes ago</small>
+                                    </div>
+                                </div>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item text-center">See all message</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <i class="fa fa-bell me-lg-2"></i>
+                            <span class="d-none d-lg-inline-flex">Notificatin</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+                            <a href="#" class="dropdown-item">
+                                <h6 class="fw-normal mb-0">Profile updated</h6>
+                                <small>15 minutes ago</small>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item">
+                                <h6 class="fw-normal mb-0">New user added</h6>
+                                <small>15 minutes ago</small>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item">
+                                <h6 class="fw-normal mb-0">Password changed</h6>
+                                <small>15 minutes ago</small>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item text-center">See all notifications</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <img class="rounded-circle me-lg-2" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                            <span class="d-none d-lg-inline-flex">John Doe</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
+                            <a href="#" class="dropdown-item">My Profile</a>
+                            <a href="#" class="dropdown-item">Settings</a>
+                            <a href="#" class="dropdown-item">Log Out</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!-- Navbar End -->
+
+
+            <!-- Table Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4">
+                    <div class="col-sm-12 col-xl-6" style="position:relative">
+                        <div class="bg-secondary rounded h-100 p-4">
+                            <div style="overflow-y: auto; height: 300px;">
+                            <h6 class="mb-4">table des voitures</h6>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Numéro</th>
+                                        <th scope="col">Modele</th>
+                                        <th scope="col">Prix</th>
+                                        <th scope="col">Modifier</th>
+                                        <th scope="col">Supprimer</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% if (results.length > 0) { %>
+                                        <% for (let i = 0; i < results.length; i++) { %>
+                                            <tr>
+                                                <th scope="row"><%= results[i].vin %></th>
+                                                <td><%= results[i].modele %></td>
+                                                <td><%= results[i].prix %></td>
+                                                <td><img style="height:25px;width:25px; cursor:pointer" src="img/modifier.png" alt="smodi"></td>
+                                                <td><img class="suprV" style="height:25px;width:25px ;cursor:pointer" src="img/sup.png" alt="sup"></td>
+                                                
+                                            </tr>
+                                        <% } %>
+                                    <% } %>
+                                </tbody>
+
+                            </table>
+
+                         </div>
+                         <button style="color: green;margin-top:10px" id="ajouterV">Ajouter</button>
+                         <form method="POST" action="/dashbord" class="formAV" style="position: absolute;top: 5px;left: 100px;z-index: 2;background: black;border-radius: 10px;display: none;height: 200px;">
+                         <div style="width:100%" >
+                             
+                             <div style="display: flex;justify-content: space-between;margin-top: 25px;">
+                                 <label style="margin-left: 10px;" for="modele" >modele</label>
+                                 <input style="border-radius: 16px;background: white;" type="text" name="modele" id="modele" >
+                             </div>
+
+                             <div style="display: flex;justify-content: space-between;">
+                                 <label style="margin-left: 10px;" for="Prix">Prix</label>
+                                 <input style="border-radius: 16px;" type="text" name="Prix" id="Prix" required>
+                             </div>
+
+
+                             <div style="display: flex;justify-content: space-between">
+                                 <label style="margin-left: 10px;" for="statut">Url image</label>
+                                 <input style="border-radius: 16px;" type="text" name="image" id="image" required>
+                             </div>
+                             <button type="submit" style="margin-top: 13px;border-radius: 16px;">Valider</button>
+                         </div>
+                     </form>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-xl-6" style="position: relative;">
+                        <div class="bg-secondary rounded h-100 p-4">
+                            <div style="overflow-y: auto; height: 300px;">
+                            <h6 class="mb-4">table des chambres</h6>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Numéro</th>
+                                        <th scope="col">Hotel</th>
+                                        <th scope="col">Prix</th>
+                                        <th scope="col">Note</th>
+                                        <th scope="col">Modifier</th>
+                                        <th scope="col">Supprimer</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% if (resultsC && resultsC.length > 0) { %>
+                                        <% for (let i = 0; i < resultsC.length; i++) { %>
+                                            <tr>
+                                                <th scope="row"><%= resultsC[i].id %></th>
+                                                <td><%= resultsC[i].nom_hotel %></td>
+                                                <td><%= resultsC[i].prix %></td>
+                                                <td><%= resultsC[i].note %></td>
+                                                <td><img style="height:25px;width:25px; cursor:pointer" src="img/modifier.png" alt="smodi"></td>
+                                                <td><img class="suprC" style="height:25px;width:25px ;cursor:pointer" src="img/sup.png" alt="supC"></td>
+                                            </tr>
+                                        <% } %>
+                                    <% } %>
+                                </tbody>
+                                
+                            </table>
+                            </div>
+                            <button style="color: green;margin-top:10px" id="ajouter">Ajouter</button>
+                            <form method="POST" action="/dashbord" class="formA" style="position: absolute;top: 5px;left: 100px;z-index: 2;background: black; border-radius: 10px;display: none;height: 260px;">
+                            <div style="width:100%" >
+                                
+                                <div style="display: flex;justify-content: space-between;margin-top: 25px;">
+                                    <label style="margin-left: 10px;" for="hotel" >hotel</label>
+                                    <input style="border-radius: 16px;background: white;" type="text" name="hotel" id="hotel" >
+                                </div>
+
+                                <div style="display: flex;justify-content: space-between;">
+                                    <label style="margin-left: 10px;" for="Prix">Prix</label>
+                                    <input style="border-radius: 16px;" type="text" name="Prix" id="Prix" required>
+                                </div>
+
+                                <div style="display: flex;justify-content: space-between">
+                                    <label style="margin-left: 10px;" for="Note">Note</label>
+                                    <input style="border-radius: 16px;" type="text" name="Note" id="Note" required>
+                                </div>
+
+                                <div style="display: flex;justify-content: space-between">
+                                    <label style="margin-left: 10px;" for="ville">ville</label>
+                                    <input style="border-radius: 16px;" type="text" name="ville" id="ville" required>
+                                </div>
+
+                                <div style="display: flex;justify-content: space-between">
+                                    <label style="margin-left: 10px;" for="statut">localisation</label>
+                                    <input style="border-radius: 16px;" type="text" name="localisation" id="localisation" required>
+                                </div>
+                                <div style="display: flex;justify-content: space-between">
+                                    <label style="margin-left: 10px;" for="statut">Url image</label>
+                                    <input style="border-radius: 16px;" type="text" name="image" id="image" required>
+                                </div>
+                                <button type="submit" style="margin-top: 13px;border-radius: 16px;">Valider</button>
+                            </div>
+                        </form>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="row g-4" style="margin-top: 30px;">
+                    <div class="col-sm-12 col-xl-6" style="position:relative">
+                        <div class="bg-secondary rounded h-100 p-4" >
+                            <div style="overflow-y: auto; height: 300px;position: relative;">
+                            <h6 class="mb-4">table des vols</h6>
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">compagnie</th>
+                                        <th scope="col">Heure depart</th>
+                                        <th scope="col">Aeroport depart</th>
+                                        <th scope="col">heure Arrive</th>
+                                        <th scope="col">Modifier</th>
+                                        <th scope="col">Supprimer</th>
+                                    </tr>
+                                </thead>
+                                <tbody >
+                                    <% if (resultsV && resultsV.length > 0) { %>
+                                        <% for (let i = 0; i <  resultsV.length; i++) { %>
+                                            <tr >
+                                                <th scope="row"><%= resultsV[i].id %></th>
+                                                <td><%= resultsV[i].compagnie %></td>
+                                                <td><%= resultsV[i].heuredep %></td>
+                                                <td><%= resultsV[i].aeroportdep %></td>
+                                                <td><%= resultsV[i].heurearr %></td>
+                                                <td><img class="modVl" style="height:25px;width:25px; cursor:pointer" src="img/modifier.png" alt="smodi"></td>
+                                                <td><img class="suprVl" style="height:25px;width:25px ;cursor:pointer" src="img/sup.png" alt="sup"></td>
+                                            </tr>
+                                        <% } %>
+                                    <% } %>
+                                </tbody>
+                            </table>
+                            <form method="POST" action="/dashbord" class="formVl" style="position: absolute;top: 5px;left: 100px;z-index: 2;background: black;border-radius: 10px;display: none;height: 240px;">
+                                <div style="width:100%" >
+                                    
+                                    <div style="display: flex;justify-content: space-between;margin-top: 25px;">
+                                        <label style="margin-left: 10px;" for="Id" >Id</label>
+                                        <input style="border-radius: 16px;background: white;" type="text" name="Id" id="IdVol" disabled>
+                                    </div>
+
+                                    <div style="display: flex;justify-content: space-between;">
+                                        <label style="margin-left: 10px;" for="compagnie">compagnie</label>
+                                        <input style="border-radius: 16px;" type="text" name="compagnie" id="compagnie" required>
+                                    </div>
+
+                                    <div style="display: flex;justify-content: space-between">
+                                        <label style="margin-left: 10px;" for="Heuredepart">Heure depart</label>
+                                        <input style="border-radius: 16px;" type="text" name="Heuredepart" id="Heuredepart" required>
+                                    </div>
+
+                                    <div style="display: flex;justify-content: space-between">
+                                        <label style="margin-left: 10px;" for="email">Aeroport depart</label>
+                                        <input style="border-radius: 16px;" type="text" name="Aeroportdepart" id="Aeroportdepart" required>
+                                    </div>
+
+                                    <div style="display: flex;justify-content: space-between">
+                                        <label style="margin-left: 10px;" for="statut">heure Arrive</label>
+                                        <input style="border-radius: 16px;" type="text" name="heureArrive" id="heureArrive" required>
+                                    </div>
+                                    <button type="submit" style="margin-top: 13px;border-radius: 16px;">Soumettre</button>
+                                </div>
+                            </form>
+                            </div>
+                            <button style="color: green;margin-top:10px" id="ajouterVl">Ajouter</button>
+                            <form method="POST" action="/dashbord" class="formAVl" style="position: absolute;top: 5px;left: 100px;z-index: 2;background: black; border-radius: 10px;display: none;height: 260px;">
+                            <div style="width:100%" >
+                                
+                                <div style="display: flex;justify-content: space-between;margin-top: 25px;">
+                                    <label style="margin-left: 10px;" for="compagnie" >compagnie</label>
+                                    <input style="border-radius: 16px;background: white;" type="text" name="compagnie" id="compagnie" >
+                                </div>
+
+                                <div style="display: flex;justify-content: space-between;">
+                                    <label style="margin-left: 10px;" for="euredep">H Depart</label>
+                                    <input style="border-radius: 16px;" type="text" name="euredep" id="euredep" required>
+                                </div>
+
+                                <div style="display: flex;justify-content: space-between">
+                                    <label style="margin-left: 10px;" for="aeroportdep">A Depart</label>
+                                    <input style="border-radius: 16px;" type="text" name="aeroportdep" id="aeroportdep" required>
+                                </div>
+
+                                <div style="display: flex;justify-content: space-between">
+                                    <label style="margin-left: 10px;" for="heurearr">H Arrive</label>
+                                    <input style="border-radius: 16px;" type="text" name="heurearr" id="heurearr" required>
+                                </div>
+
+                                <div style="display: flex;justify-content: space-between">
+                                    <label style="margin-left: 10px;" for="statut">A arriv</label>
+                                    <input style="border-radius: 16px;" type="text" name="aeroportarr" id="aeroportarr" required>
+                                </div>
+                                <div style="display: flex;justify-content: space-between">
+                                    <label style="margin-left: 10px;" for="statut">Prix</label>
+                                    <input style="border-radius: 16px;" type="text" name="Prix" id="Prix" required>
+                                </div>
+                                <button type="submit" style="margin-top: 13px;border-radius: 16px;">Valider</button>
+                            </div>
+                        </form>
+                        </div>
+                    </div>
+                  
+                    <div class="col-sm-12 col-xl-6" style="position: relative;">
+                        <div class="bg-secondary rounded h-100 p-4">
+                            <div style="overflow-y: auto; height: 300px; position:relative">
+                            <h6 class="mb-4">table utilisateur</h6>
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Numero</th>
+                                        <th scope="col">Nom</th>
+                                        <th scope="col">Prenom</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Statut</th>
+                                        <th scope="col">Modifier</th>
+                                        <th scope="col">Supprimer</th>
+                                    </tr>
+                                </thead>
+                                <tbody >
+                                    <% if (resultsU && resultsU.length > 0) { %>
+                                        <% for (let i = 0; i <  resultsU.length; i++) { %>
+                                            <tr >
+                                                <th scope="row"><%= resultsU[i].id %></th>
+                                                <td><%= resultsU[i].nom %></td>
+                                                <td><%= resultsU[i].prenom %></td>
+                                                <td><%= resultsU[i].email %></td>
+                                                <td><%= resultsU[i].statut %></td>
+                                                <td><img class="modU" style="height:25px;width:25px; cursor:pointer" src="img/modifier.png" alt="smodi"></td>
+                                                <td><img class="suprU" style="height:25px;width:25px ;cursor:pointer" src="img/sup.png" alt="sup"></td>
+
+                                        <% } %>
+                                    <% } %>
+                                </tbody>
+                            </table>
+                            <form method="POST" action="/dashbord" class="formU" style="position: absolute;top: 5px;left: 100px;z-index: 2;background: black;border-radius: 10px;display: none;height: 240px;">
+                                <div style="width:100%" >
+                                    
+                                    <div style="display: flex;justify-content: space-between;">
+                                        <label style="margin-left: 10px;" for="Id" >Id</label>
+                                        <input style="border-radius: 16px;background: white;" type="text" name="Id" id="Idi" disabled>
+                                    </div>
+
+                                    <div style="display: flex;justify-content: space-between;">
+                                        <label style="margin-left: 10px;" for="nom">Nom</label>
+                                        <input style="border-radius: 16px;" type="text" name="nom" id="nom" required>
+                                    </div>
+
+                                    <div style="display: flex;justify-content: space-between">
+                                        <label style="margin-left: 10px;" for="prenom">Prenom</label>
+                                        <input style="border-radius: 16px;" type="text" name="prenom" id="prenom" required>
+                                    </div>
+
+                                    <div style="display: flex;justify-content: space-between">
+                                        <label style="margin-left: 10px;" for="email">Email</label>
+                                        <input style="border-radius: 16px;" type="text" name="email" id="email" required>
+                                    </div>
+
+                                    <div style="display: flex;justify-content: space-between">
+                                        <label style="margin-left: 10px;" for="statut">Statut</label>
+                                        <input style="border-radius: 16px;" type="text" name="statut" id="statut" required>
+                                    </div>
+                                    <button type="submit" style="margin-top: 13px;border-radius: 16px;">Soumettre</button>
+                                </div>
+                            </form>
+                        
+                        </div>
+                        <button style="color: green;margin-top:10px" id="ajouterU">Ajouter</button>
+                        <form method="POST" action="/dashbord" class="formAU" style="position: absolute;top: 5px;left: 100px;z-index: 2;background: black; border-radius: 10px;display: none;height: 260px;">
+                        <div style="width:100%" >
+                            
+
+                            <div style="display: flex;justify-content: space-between;">
+                                <label style="margin-left: 10px;" for="nom">Nom</label>
+                                <input style="border-radius: 16px;" type="text" name="nom" id="nom" required>
+                            </div>
+
+                            <div style="display: flex;justify-content: space-between">
+                                <label style="margin-left: 10px;" for="prenom">Prenom</label>
+                                <input style="border-radius: 16px;" type="text" name="prenom" id="prenom" required>
+                            </div>
+
+                            <div style="display: flex;justify-content: space-between">
+                                <label style="margin-left: 10px;" for="email">Email</label>
+                                <input style="border-radius: 16px;" type="text" name="email" id="email" required>
+                            </div>
+
+                            <div style="display: flex;justify-content: space-between">
+                                <label style="margin-left: 10px;" for="password">password</label>
+                                <input style="border-radius: 16px;" type="text" name="password" id="password" required>
+                            </div>
+
+                            <button type="submit" style="margin-top: 13px;border-radius: 16px;">Valider</button>
+                        </div>
+                    </form>
+                    </div>
+                    </div>
+                </div>
+
+                
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/chart/chart.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <script>
+        // partie suprimer
+
+        const supprimerElementsC = document.querySelectorAll('.suprC');
+        const supprimerElementsV = document.querySelectorAll('.suprV');
+        const supprimerElementsVl = document.querySelectorAll('.suprVl');
+        const supprimerElementsU = document.querySelectorAll('.suprU');
+        
+        supprimerElementsC.forEach((element) => {
+          element.addEventListener('click', () => {
+            const id = element.parentElement.parentElement.firstElementChild.innerText;
+            console.log(id);
+          
+            // Envoyer une requête AJAX pour supprimer la chambre avec l'identifiant récupéré
+            supprimerChambre(id);
+          });
+        });
+        
+        function supprimerChambre(id) {
+          // Envoyer une requête AJAX pour supprimer la chambre avec l'identifiant spécifié
+            $.ajax({
+                url: '/api/Deletechambre/:id',
+                method: 'DELETE',
+                data: { id: id }, // Inclure l'identifiant de l'utilisateur dans le corps de la requête
+                success: function(response) {
+                  console.log(response);
+                location.reload();
+                  // Gérer la réponse en cas de succès, par exemple recharger la page ou mettre à jour la liste des utilisateurs
+                },
+                error: function(error) {
+                  console.error(error);
+                  // Gérer les erreurs, si nécessaire
+                }
+              });
+        }
+        
+        supprimerElementsV.forEach((element) => {
+          element.addEventListener('click', () => {
+            const id = element.parentElement.parentElement.firstElementChild.innerText;
+            console.log(id);
+          
+            // Envoyer une requête AJAX pour supprimer la voiture avec l'identifiant récupéré
+            supprimerVoiture(id);
+          });
+        });
+        
+        function supprimerVoiture(id) {
+          // Envoyer une requête AJAX pour supprimer la voiture avec l'identifiant spécifié
+
+            $.ajax({
+                url: '/api/Deletevoiture/:id',
+                method: 'DELETE',
+                data: { id: id }, // Inclure l'identifiant de l'utilisateur dans le corps de la requête
+                success: function(response) {
+                  console.log(response);
+                location.reload();
+                  // Gérer la réponse en cas de succès, par exemple recharger la page ou mettre à jour la liste des utilisateurs
+                },
+                error: function(error) {
+                  console.error(error);
+                  // Gérer les erreurs, si nécessaire
+                }
+              });
+        }
+        
+        supprimerElementsVl.forEach((element) => {
+          element.addEventListener('click', () => {
+            const id = element.parentElement.parentElement.firstElementChild.innerText;
+            console.log(id);
+          
+            // Envoyer une requête AJAX pour supprimer le vol avec l'identifiant récupéré
+            supprimerVols(id);
+          });
+        });
+        
+        function supprimerVols(id) {
+          // Envoyer une requête AJAX pour supprimer le vol avec l'identifiant spécifié
+      
+            $.ajax({
+                url: '/api/Deletevol/:id',
+                method: 'DELETE',
+                data: { id: id }, // Inclure l'identifiant de l'utilisateur dans le corps de la requête
+                success: function(response) {
+                  console.log(response);
+                location.reload();
+                  // Gérer la réponse en cas de succès, par exemple recharger la page ou mettre à jour la liste des utilisateurs
+                },
+                error: function(error) {
+                  console.error(error);
+                  // Gérer les erreurs, si nécessaire
+                }
+              });
+        }
+        
+        supprimerElementsU.forEach((element) => {
+          element.addEventListener('click', () => {
+            const id = element.parentElement.parentElement.firstElementChild.innerText;
+            console.log(id);
+          
+            // Envoyer une requête AJAX pour supprimer l'utilisateur avec l'identifiant récupéré
+            supprimerUsers(id);
+          });
+        });
+        
+        function supprimerUsers(id) {
+          // Envoyer une requête AJAX pour supprimer l'utilisateur avec l'identifiant spécifié
+          $.ajax({
+            url: '/api/Deleteuser/:id',
+            method: 'DELETE',
+            data: { id: id }, // Inclure l'identifiant de l'utilisateur dans le corps de la requête
+            success: function(response) {
+              console.log(response);
+            location.reload();
+              // Gérer la réponse en cas de succès, par exemple recharger la page ou mettre à jour la liste des utilisateurs
+            },
+            error: function(error) {
+              console.error(error);
+              // Gérer les erreurs, si nécessaire
+            }
+          });
+          
+        }
+        
+
+        //partie Modifier 
+
+        // modefier utilisateur
+
+        const modifierU=document.querySelectorAll('.modU')
+        modifierU.forEach(element=>{
+            element.addEventListener('click',()=>{
+                const id = element.parentElement.parentElement.firstElementChild.innerText;
+                const formu=document.querySelector('.formU');
+                formu.style.display="block";
+                const ident=document.querySelector('#Idi');
+                ident.value=id
+                formu.addEventListener("submit", async function(event) {
+                    event.preventDefault(); // Empêche le comportement par défaut du formulaire
+              
+                    const formData = new FormData(formu); // Récupère les valeurs saisies dans le formulaire
+              
+                    const nom = formData.get("nom");
+                    const prenom = formData.get("prenom");
+                    const email = formData.get("email");  
+                   
+                    const statut = formData.get("statut");
+                    console.log(nom,prenom,email,id)
+              
+                    $.ajax({
+                        url: '/api/updateUser/:id',
+                        method: 'PUT',
+                        data: {id:id,nom:nom,prenom:prenom,email:email,statut:statut }, // Inclure l'identifiant de l'utilisateur dans le corps de la requête
+                        success: function(response) {
+                          console.log(response);
+                          setTimeout(function() {
+                            location.reload();
+                          }, 1000)
+                          // Gérer la réponse en cas de succès, par exemple recharger la page ou mettre à jour la liste des utilisateurs
+                        },
+                        error: function(error) {
+                          console.error(error);
+                          // Gérer les erreurs, si nécessaire
+                        }
+                      });
+                  });
+            })
+        })
+
+// modifier vol
+const modifierVl=document.querySelectorAll('.modVl')
+
+modifierVl.forEach(element=>{
+    element.addEventListener('click',()=>{
+        const id = element.parentElement.parentElement.firstElementChild.innerText;
+        console.log(id)
+        const formu=document.querySelector('.formVl');
+        formu.style.display="block";
+        const ident=document.querySelector('#IdVol');
+        ident.value=id
+        formu.addEventListener("submit", async function(event) {
+            event.preventDefault(); // Empêche le comportement par défaut du formulaire
+      
+            const formData = new FormData(formu); // Récupère les valeurs saisies dans le formulaire
+      
+            const compagnie = formData.get("compagnie");
+            const heuredep = formData.get("Heuredepart");
+            const aerodep = formData.get("Aeroportdepart");  
+           
+            const heurearr = formData.get("heureArrive");
+            console.log(compagnie,heuredep,aerodep,id)
+      
+            $.ajax({
+                url: '/api/updatevol/:id',
+                method: 'PUT',
+                data: {id:id,compagnie:compagnie,aerodep:aerodep,heuredep:heuredep,heurearr:heurearr }, // Inclure l'identifiant de l'utilisateur dans le corps de la requête
+                success: function(response) {
+                  console.log(response);
+                  setTimeout(function() {
+                    location.reload();
+                  }, 1000)
+                  // Gérer la réponse en cas de succès, par exemple recharger la page ou mettre à jour la liste des utilisateurs
+                },
+                error: function(error) {
+                  console.error(error);
+                  // Gérer les erreurs, si nécessaire
+                }
+              });
+          });
+    })
+})
+
+
+// ajout element chambre
+
+const ajout=document.querySelector('#ajouter')
+ajout.addEventListener('click',()=>{
+
+    const formu=document.querySelector('.formA');
+    formu.style.display="block";
+    formu.addEventListener("submit", async function(event) {
+        event.preventDefault(); // Empêche le comportement par défaut du formulaire
+  
+        const formData = new FormData(formu); // Récupère les valeurs saisies dans le formulaire
+  
+        const hotel = formData.get("hotel");
+        const Prix = formData.get("Prix");
+        const Note = formData.get("Note");  
+        const ville = formData.get("ville");
+        const localisation=formData.get("localisation");
+        const image = formData.get("image");  
+       
+        
+        console.log(hotel,Prix,Note)
+
+              
+        $.ajax({
+            url: '/api/InsertChambre',
+            method: 'POST',
+            data: {hotel:hotel,Prix:Prix,Note:Note,ville:ville, localisation:localisation,image:image}, // Inclure l'identifiant de l'utilisateur dans le corps de la requête
+            success: function(response) {
+              console.log(response);
+              setTimeout(function() {
+                location.reload();
+              }, 1000)
+              // Gérer la réponse en cas de succès, par exemple recharger la page ou mettre à jour la liste des utilisateurs
+            },
+            error: function(error) {
+              console.error(error);
+              // Gérer les erreurs, si nécessaire
+            }
+          });
+
+
+
+    })
+})
+
+// partie Ajout de voiture
+const ajoutV=document.querySelector('#ajouterV')
+ajoutV.addEventListener('click',()=>{
+
+    const formu=document.querySelector('.formAV');
+    formu.style.display="block";
+    formu.addEventListener("submit", async function(event) {
+        event.preventDefault(); // Empêche le comportement par défaut du formulaire
+  
+        const formData = new FormData(formu); // Récupère les valeurs saisies dans le formulaire
+  
+        const modele = formData.get("modele");
+        const Prix = formData.get("Prix");
+        const image = formData.get("image");  
+       
+        
+        console.log(hotel,Prix,image)
+
+              
+        $.ajax({
+            url: '/api/InsertVoiture',
+            method: 'POST',
+            data: {modele:modele,Prix:Prix,image:image}, // Inclure l'identifiant de l'utilisateur dans le corps de la requête
+            success: function(response) {
+              console.log(response);
+              setTimeout(function() {
+                location.reload();
+              }, 1000)
+              // Gérer la réponse en cas de succès, par exemple recharger la page ou mettre à jour la liste des utilisateurs
+            },
+            error: function(error) {
+              console.error(error);
+              // Gérer les erreurs, si nécessaire
+            }
+          });
+
+
+
+    })
+})
+
+// Ajout Vol
+
+const ajoutVl=document.querySelector('#ajouterVl')
+ajoutVl.addEventListener('click',()=>{
+
+    const formu=document.querySelector('.formAVl');
+    formu.style.display="block";
+    formu.addEventListener("submit", async function(event) {
+        event.preventDefault(); // Empêche le comportement par défaut du formulaire
+  
+        const formData = new FormData(formu); // Récupère les valeurs saisies dans le formulaire
+  
+        const compagnie = formData.get("compagnie");
+        const heuredep = formData.get("euredep");
+        const aerodep = formData.get("aeroportdep");  
+       
+        const heurearr = formData.get("heurearr");
+        const aeroportarr = formData.get("aeroportarr");
+        const prix = formData.get("Prix");
+       
+        
+        console.log(compagnie,heurearr,aerodep,aeroportarr,heuredep,prix)
+
+              
+        $.ajax({
+            url: '/api/InsertVols',
+            method: 'POST',
+            data: {compagnie:compagnie,aerodep:aerodep,heuredep:heuredep,heurearr:heurearr,aeroportarr:aeroportarr, prix:prix}, // Inclure l'identifiant de l'utilisateur dans le corps de la requête
+            success: function(response) {
+              console.log(response);
+              setTimeout(function() {
+                location.reload();
+              }, 1000)
+              // Gérer la réponse en cas de succès, par exemple recharger la page ou mettre à jour la liste des utilisateurs
+            },
+            error: function(error) {
+              console.error(error);
+              // Gérer les erreurs, si nécessaire
+            }
+          });
+
+
+
+    })
+})
+
+// ajout utilisateur
+
+const ajoutU=document.querySelector('#ajouterU')
+ajoutU.addEventListener('click',()=>{
+
+    const formu=document.querySelector('.formAU');
+    formu.style.display="block";
+    formu.addEventListener("submit", async function(event) {
+        event.preventDefault(); // Empêche le comportement par défaut du formulaire
+  
+        const formData = new FormData(formu); // Récupère les valeurs saisies dans le formulaire
+  
+        const nom = formData.get("nom");
+        const prenom = formData.get("prenom");
+        const email = formData.get("email");  
+        const password = formData.get("password");  
+       
+        
+        console.log(nom,prenom,email,password)
+
+              
+        $.ajax({
+            url: '/api/InsertUser',
+            method: 'POST',
+            data: {nom:nom,prenom:prenom,email:email,password:password}, // Inclure l'identifiant de l'utilisateur dans le corps de la requête
+            success: function(response) {
+              console.log(response);
+              setTimeout(function() {
+                location.reload();
+              }, 1000)
+              // Gérer la réponse en cas de succès, par exemple recharger la page ou mettre à jour la liste des utilisateurs
+            },
+            error: function(error) {
+              console.error(error);
+              // Gérer les erreurs, si nécessaire
+            }
+          });
+
+
+
+    })
+})
+
+    </script>
+</body>
+
+</html>
+<!-- =zWNkXAk2%k3+R5 -->

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Page Accueil</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="bootstrap-grid.min.css">
+    </head>
+    <body>
+<!-- premier partie -->
+        <div class="d0">
+          <img class="im0" src="img/Logo.jpeg"  alt="Logo.jpeg">
+          <img class="tog" src="img/togle.png" alt="togle">
+          <ul class="u0">
+            <li><a href="/vol"> Vols</a></li>
+            <li><a href="/chambre">Chambres</a> </li>
+            <li><a href="/voiture">Voitures</a> </li>
+            <% if (loggedIn) { %>
+              <li style=" height: 45px;border-radius: 10px; font-weight: bold;background-color: red; color: white;display: flex; align-items: center;padding-right: 10px;padding-left: 10px;">
+                <img  src="img/profil.png" alt="to">
+                <a href=""> <%= userId %></a> 
+                <a class="toggle-dropdown-menu header-block no-decoration" href="#" aria-haspopup="true" style="margin-left:7px;color:white">
+                  <span class="point" id="dropdown-toggle" onclick="toggleDropdownMenu()">▾</span>
+                </a> 
+                <ul class="ucl" style="min-width: 200px; padding: 5px 10px;background: #fff;border: 1px solid #c8c8c8;box-shadow: 0 2px 2px 0 rgba(0,0,0,0.3);list-style: none;list-style-image: none;
+                      list-style-image: none;border-radius: 4px;position: absolute; right: 0px; top: 105px; z-index: 3; display: none;">
+                  <li><a style="color: #0078b0;font: inherit;  font-size: inherit;text-decoration: none;-webkit-transition: all 0.1s linear 0s;
+                    -moz-transition: all 0.1s linear 0s;transition: all 0.1s linear 0s" href="">Mon Profil</a></li>
+                  <li><a style="color: #0078b0;font: inherit;  font-size: inherit;text-decoration: none;-webkit-transition: all 0.1s linear 0s;
+                    -moz-transition: all 0.1s linear 0s;transition: all 0.1s linear 0s" href="">Deconnecter</a></li>
+                </ul>
+              </li>
+              <% } else { %>
+
+                <li class="ins"><a href="inscription">S'inscrires</a> </li>
+                <li class="conex"><a href="connexion">Se connecter</a> </li>
+
+              <% } %>
+          </ul>
+        </div>
+        <div class="d1">
+          <p class="p0">
+            Bienvenue sur CMD </br> Services
+
+          </p>
+        </div>
+        <div class="d2">
+          <p>Commencez à planifier votre prochaine escapade</p>
+        </div>
+
+  <!-- second partie -->
+        <div class="ds0">
+          <div class="im1">
+            <p class="p1">chambre climatisée</p>
+            <p class="p11">
+              <span>Bon endroit</span> </br></br>
+              Trouvez l’inspiration et des offres pour votre escapade de dernière minute.
+            </p>
+          </div>
+          <div class="im2">
+            <p class="p2">piscine</p>
+            <p class="p22">
+              <span>Hôtels en plein cœur de la ville</span> </br></br>
+              Découvrez la liste
+            </p>
+          </div>
+          <div class="im3">
+            <p class="p3">vue sur la plage</p>
+            <p class="p33">
+              <span>Hôtels urbains à prix mini</span> </br></br>
+
+              Découvrez la liste
+            </p>
+          </div>
+
+        </div>
+
+
+        <!-- troisieme parie -->
+        <div class="dt">
+          <div class="dt1">
+
+            <p>
+              <span>Vos vacances à petits prix</span>
+              <span class="s2">Je découvre</span>
+            </p>
+          </div>
+
+          <div class="dt2">
+
+            <p>Découvrir les plats du chef</p>
+          </div>
+
+        </div>
+
+        <!-- quatrieme partie -->
+        <div class="dq0">
+          <p>Voyager en toute sécurité</p>
+        </div>
+        <div class="dq">
+          <div class="dq1">
+            <p>
+              <span></span>
+              <span class="dqs">je découvre</span>
+            </p>
+          </div>
+          <div class="dq2">
+            <p>
+              <span></span>
+              <span class="dqs">je découvre</span>
+            </p>
+          </div>
+          <div class="dq3">
+            <p>
+              <span ></span>
+              <span class="dqs">je découvre</span>
+            </p>
+          </div>
+        </div>
+        <!-- cinquieme partie -->
+        <div class="dc0">
+          <p>Se déplacer devient facile maintenant ! ! !</p>
+        </div>
+        <div class="dc">
+          <div class="dc1">
+            <p class="pdc0">Nouvelle</p>
+            <p class="pdc1">Lamborghini Class X</p>
+
+          </div>
+          <div class="dc2">
+            <p class="pdc01">Nouvelle</p>
+            <p class="pdc11">BMW</p>
+          </div>
+          <div class="dc3">
+            <p class="pdc02">Nouvelle</p>
+            <p class="pdc12">Chevrolet</p>
+          </div>
+        </div>
+
+        <!-- derniere partie ou footer -->
+        <div class="container-fluid f">
+          <div class="row justify-content-between R">
+            <div class="col-11 col-sm-11 col-md-3 col-lg-3">
+              <img class="lo" src="img/C__7_-removebg-preview.png" alt="C__7_-removebg-preview.png">
+              <div class="contact">
+                <p>Tel :  33  855  23  24 ,  (+221)  77  345  10  20</p>
+                <p>Adresse:  Av Cheikh Anta  Diop</p>
+                <p>Email:  cmdservice@gmail.com</p>
+              </div>
+              <div class="reseaux">
+                <p>Retrouvez nous sur les réseaux sociaux</p>
+                <div class="imRe">
+                  <img class="i1" src=" 'img/face.jpeg'" alt="l1">
+                  <img class="i2" src="img/insta.jpeg'" alt="l3">
+                  <img class="i3" src="img/whtsap.jpeg" alt="l2">
+                  <img class="i4" src="img/twitter.jpeg" alt="l4">
+                  <img class="i5" src="img/linkedin.jpeg" alt="l6">
+                </div>
+              </div>
+            </div>
+            <div class="col-11 col-sm-11 col-md-3 col-lg-3">
+              <p class="pf21">Partenariat</p>
+              <p class="pf22">
+                <span>Aeroport Blaise Diagne</span> </br>
+                  <span>Aeroport Lepold Sedar Senghor</span> </br>
+                    <span>Radisson</span> </br>
+                      <span>VDN</span> </br></br>
+                        <span>Diamniadio</span> </br>
+                        <span>BMW</span> </br>
+                          <span>FORD</span>
+              </p>
+            </div>
+
+            <div class="col-11 col-sm-11 col-md-3 col-lg-3">
+              <p class="pf31">A propos de nous</p>
+              <p class="pf32">
+                CMD est une entreprise proposant un ensemble complet
+                de services comprenant la réservation de vols, la location de
+                voitures et la réservation de chambres d'hôtel. Notre objectif est
+                de rendre votre expérience de voyage agréable en vous offrant des
+                solutions pratiques et adaptées à vos besoins. Faites-nous confiance
+                pour prendre en charge tous les aspects de votre voyage afin que vous
+                puissiez vous concentrer sur la découverte et la détente.
+              </p>
+            </div>
+
+          </div>
+        </div>
+        
+
+    </body>
+</html>

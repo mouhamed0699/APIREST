@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Résultats de la recherche de voiture</title>
+    <script src="https://kit.fontawesome.com/845105b0c2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="recherchevoiture.css">
+</head>
+<body>
+    
+    <!-- Header -->
+    <div class="div1">
+        <img src="img/C__7_-removebg-preview.png" class="logo" alt="">
+        <ul>
+            <% if (loggedIn) { %>
+                <li style=" height: 45px;border-radius: 10px; font-weight: bold;background-color: gray; color: white;display: flex; align-items: center;padding-right: 10px;padding-left: 10px;">
+                  <img  src="img/profil.png" alt="to">
+                  <a href=""> <%= userId %></a> 
+                  <a class="toggle-dropdown-menu header-block no-decoration" href="#" aria-haspopup="true" style="margin-left:7px;color:white">
+                    <span class="point" id="dropdown-toggle" onclick="toggleDropdownMenu()">▾</span>
+                  </a> 
+                  <ul class="ucl" style="min-width: 200px; padding: 5px 10px;background: #fff;border: 1px solid #c8c8c8;box-shadow: 0 2px 2px 0 rgba(0,0,0,0.3);list-style: none;list-style-image: none;
+                        list-style-image: none;border-radius: 4px;position: absolute; right: 0px; top: 105px; z-index: 3; display: none;">
+                    <li><a style="color: #0078b0;font: inherit;  font-size: inherit;text-decoration: none;-webkit-transition: all 0.1s linear 0s;
+                      -moz-transition: all 0.1s linear 0s;transition: all 0.1s linear 0s" href="">Mon Profil</a></li>
+                    <li><a style="color: #0078b0;font: inherit;  font-size: inherit;text-decoration: none;-webkit-transition: all 0.1s linear 0s;
+                      -moz-transition: all 0.1s linear 0s;transition: all 0.1s linear 0s" href="">Deconnecter</a></li>
+                  </ul>
+                </li>
+                <% } else { %>
+  
+                  <li class="ins"><a href="inscription">S'inscrires</a> </li>
+                  <li class="conex"><a href="connexion">Se connecter</a> </li>
+  
+                <% } %>
+            <li><a href="/home">Accueil</a></li>
+            <li><a href="/vol">Vols</a></li>
+            <li><a href="voiture">Voitures</a></li>
+        </ul>
+    </div>
+
+    <!-- Titre des résultats -->
+
+    
+    <h1>Les voitures disponibles</h1>
+
+    <% if (results.length > 0) { %>
+        <% results.forEach(function(result) { %>           
+                    <!-- Formulaire de modification -->
+                <form method="POST"  id="form-<%= result.vin %>" style="display: none;" action="/modifier/<%= result.vin %>"  style="background-color: red;">
+                  <input type="text" name="vin" value="<%= result.vin %>"><br><br>
+                  <input type="text" name="modele" value="<%= result.modele %>"><br><br>
+                  <input type="text" name="prix" value="<%= result.prix %>"><br><br>
+                  <button class="but"  type="submit">Enregistrer les modifications</button>
+                  <button class="but" type="button" onclick="hideForm('<%= result.vin %>')">Annuler</button>
+                </form>
+              
+            <!-- Résultat de recherche de voiture -->
+            <div class="div2">
+                    <div class='d1'>
+                    <ul class='ul'>
+                        <li>
+                            <br><br>
+                            <span class="v1">Modèle:</span>
+                            <span class="v4"><%= result.modele %></span>
+                            <br>
+                            <span class="v1">Prix:</span>
+                            <span class="v4"><%= result.prix %>€</span>
+                        </li>
+                    </ul>     
+                                 
+                   <!-- <button class="buttt">Modifier</button>
+                   <button class="buttt">Supprimer</button> -->
+
+                   <% if (status === 'editeur') { %>
+                    <button class="buttt" id="<%= result.vin %>" onclick="toggleForm('<%= result.vin %>')">Modifier</button>
+                    <button class="buttt" id="<%= result.vin %>" onclick="supprimer('<%= result.vin %>')">Supprimer</button>
+                <% } %>
+                </div>
+                
+                <div class="d2">
+                    <span><img src="<%= result.image %>" class="img4"></span> <!-- Intégration de l'image -->
+                </div>
+
+            </div>
+    
+        <% }) %>
+    <% } else { %>
+        <p>Aucun résultat trouvé pour cette recherche.</p>
+    <% } %>
+
+
+    <div id="message-container"></div>
+    <!-- Autres éléments de la page -->
+
+    <script>
+        function toggleForm(vin) {
+            const form = document.getElementById('form-' + vin);
+            form.style.display = 'block';
+        }
+    
+        function hideForm(vin) {
+            const form = document.getElementById('form-' + vin);
+            form.style.display = 'none';
+        }
+    
+        const submitForm = async (vin) => {
+            // Assuming you have a function to fetch the form data and submit the POST request
+            // Modify this part according to how you are submitting the form data
+            try {
+                const response = await fetch(`/modifier/${vin}`, {
+                    method: 'POST',
+                    // Add your request headers and body here (if needed)
+                });
+    
+                if (response.ok) {
+                    const data = await response.json();
+                    // Display the success message
+                    const messageContainer = document.getElementById('message-container');
+                    messageContainer.innerText = data.message;
+                    messageContainer.style.display = 'block';
+    
+                    // Hide the message after 3 seconds (adjust as needed)
+                    setTimeout(() => {
+                        messageContainer.style.display = 'none';
+                    }, 3000);
+                } else {
+                    // Handle the error response (if needed)
+                    console.error('Error:', response.status);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        };
+    </script>
+</body>
+</html>

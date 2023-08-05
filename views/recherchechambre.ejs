@@ -1,0 +1,197 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Résultats de la recherche de chambre</title>
+    <link rel="stylesheet" href="recherchechambre.css">
+</head>
+<body>
+    <div class="div1">
+        <img src="img/C__7_-removebg-preview.png" class="logo" alt="">
+        <ul>
+          <li class="ins"><a href="inscription">S'inscrires</a> </li>
+          <li class="ins"><a href="connexion">Se connecter</a> </li>
+          <li><a href="index">Accueil</a> </li>
+          <li><a href="vol"> Vols</a></li>
+          <li><a href="voiture">Voitures</a> </li>
+  
+        </ul>
+        
+    </div>
+    <h1>Résultats de la recherche de chambres</h1>
+    <div class='d1'>
+    <% if (donnee.length > 0) { %>
+        
+        <% donnee.forEach(function(result) { %>
+            <ul class='ul'>
+                <img src="<%= result.image %> " class="logoentete" alt="">
+                <li>
+                  <span class="hot">  Nom Hotel : <%= result.nom_hotel %></span>
+                  <span class="etoi">
+                    <img src="img/etoile.png" class="etoil" alt="">
+                    <img src="img/etoile.png" class="etoil" alt="">
+                    <img src="img/etoile.png" class="etoil" alt="">
+                    <img src="img/etoile.png" class="etoil" alt="">
+                    <img src="img/etoile.png" class="etoil" alt="">
+                 </span>
+                <span class="descr">Votre refuge de choix. Réservez dès maintenant ! </span>
+                  <span class="cham">  Chambre <%= result.id %> </span>
+                  <span class="mont"> Montant : <%= result.prix %>  </span>
+                  <% if (status==="editeur") { %>
+                    <% const matchingResultats = resultats.filter(resultat => resultat.id_corr === result.id); %>
+                    <% const allAreModification = matchingResultats.some(resultat => resultat.statut === 'Modification'); %>
+                    <% const allAreSuppression = matchingResultats.some(resultat => resultat.statut === 'Supression'); %>
+
+                    <% if (allAreModification) { %>
+                        <button class="btn" onclick="toggleForm('<%= result.id %>')" disabled>modefier</button>
+                        <% } else { %>
+                          <button class="btn" onclick="toggleForm('<%= result.id %>')" >modefier</button>
+                        <% } %>
+                    
+                        <% if (allAreSuppression) { %>
+                          <button class="btnn" onclick="supprimer('<%= result.id %>')"  disabled>suprimer</button>
+                        <% } else { %>
+                          <button class="btnn" onclick="supprimer('<%= result.id %>')">suprimer</button>
+                        <% } %>
+                    
+                    
+                    <form  class="formA" id="form-<%= result.id %>" style="position: absolute;top: 5px;left: 100px;z-index: 2;background: White;
+                     border-radius: 10px;display: none;height: auto;border: 2px solid cadetblue;">
+                      <div style="width:100%;display:flex;flex-direction:column" >
+                          
+                          <div style="display: flex;justify-content: space-between;margin-top: 25px;">
+                              <label style="margin-left: 10px;" for="hotel" >hotel</label>
+                              <input style="border-radius: 16px;background: white;" value="<%= result.nom_hotel %>" type="text" name="hotel" id="hotel" >
+                            </div> 
+                          </div>
+
+                          <div style="display: flex;justify-content: space-between;">
+                              <label style="margin-left: 10px;" for="Prix">Prix</label>
+                              <input style="border-radius: 16px;" type="text" name="Prix" value="<%= result.prix %>" id="Prix" required>
+                          </div>
+
+                          <div style="display: flex;justify-content: space-between">
+                              <label style="margin-left: 10px;" for="Note">Note</label>
+                              <input style="border-radius: 16px;" type="text" value="<%= result.note %>" name="Note" id="Note" required>
+                          </div>
+
+                          <div style="display: flex;justify-content: space-between">
+                              <label style="margin-left: 10px;" for="ville">ville</label>
+                              <input style="border-radius: 16px;" type="text" value="<%= result.ville %>" name="ville" id="ville" required>
+                          </div>
+
+                          <div style="display: flex;justify-content: space-between">
+                              <label style="margin-left: 10px;" for="statut">localisation</label>
+                              <input style="border-radius: 16px;" type="text" value="<%= result.localisation %>" name="localisation" id="localisation" required>
+                          </div>
+                          <div style="display: flex;justify-content: space-between">
+                              <label style="margin-left: 10px;" for="statut">Url image</label>
+                              <input style="border-radius: 16px;" type="text" value="<%= result.image %>" name="image" id="image" required>
+                          </div>
+                          <button type="submit" style="margin-top: 13px;border-radius: 16px;max-width: fit-content;margin-left: inherit;">Valider</button>
+                          <button type="button" class="annler" onclick="hideForm('<%= result.id %>')" style="margin-top: -20px;border-radius: 16px;max-width: fit-content;">annuler</button>
+                      </div>
+                  </form>
+                  <% } %>
+                    
+                </li>
+                <br>
+                
+            </ul>        
+        
+        <% }) %>
+        <% } else { %>
+            <p>Aucun résultat trouvé pour cette recherche.</p>
+          <% } %>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            function toggleForm(id) {
+                const form = document.getElementById('form-' + id);
+                const div2 = document.getElementById('principal');
+                form.style.display = form.style.display === 'none' ? 'block' : 'none';
+
+                const ajout=document.querySelector('#ajouter')
+             
+                
+                form.addEventListener("submit", async function(event) {
+                    event.preventDefault(); // Empêche le comportement par défaut du formulaire
+              
+                    const formData = new FormData(form); // Récupère les valeurs saisies dans le formulaire
+              
+                    const hotel = formData.get("hotel");
+                    const Prix = formData.get("Prix");
+                    const Note = formData.get("Note");  
+                    const ville = formData.get("ville");
+                    const localisation=formData.get("localisation");
+                    const image = formData.get("image");  
+                    const id_corr=id
+                    
+                    console.log(hotel,Prix,Note,id_corr)
+            
+                          
+                    $.ajax({
+                        url: '/api/InserChambreTampo',
+                        method: 'POST',
+                        data: {hotel:hotel,Prix:Prix,Note:Note,ville:ville, localisation:localisation,image:image,id_corr:id_corr}, // Inclure l'identifiant de l'utilisateur dans le corps de la requête
+                        success: function(response) {
+                          console.log(response);
+                          setTimeout(function() {
+                            location.reload();
+                          }, 1000)
+                          // Gérer la réponse en cas de succès, par exemple recharger la page ou mettre à jour la liste des utilisateurs
+                        },
+                        error: function(error) {
+                          console.error(error);
+                          // Gérer les erreurs, si nécessaire
+                        }
+                      });
+            
+            
+            
+                })
+            
+
+
+
+              }
+        
+              function hideForm(id) {
+                const form = document.getElementById('form-' + id);
+                form.style.display = 'none';
+              }
+        
+              function supprimer(id) {
+                if (confirm("Voulez-vous appliquer une supression ?")) {
+                  const id_corr=id
+                    
+                
+          
+                        
+                  $.ajax({
+                      url: '/api/SuprimeChambreTampo',
+                      method: 'POST',
+                      data: {id_corr:id_corr}, // Inclure l'identifiant de l'utilisateur dans le corps de la requête
+                      success: function(response) {
+                        console.log(response);
+                        setTimeout(function() {
+                          location.reload();
+                        }, 1000)
+                        // Gérer la réponse en cas de succès, par exemple recharger la page ou mettre à jour la liste des utilisateurs
+                      },
+                      error: function(error) {
+                        console.error(error);
+                        // Gérer les erreurs, si nécessaire
+                      }
+                    });
+
+                }
+              }
+          
+        </script>
+</body>
+</html>

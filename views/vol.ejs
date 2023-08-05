@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="vol.css">
+    <title>Réserver Vol</title>
+</head>
+<body>
+  <div class="div0">
+        <div class="div1">
+            <img src="" alt="">
+            <ul id="ul">
+                <% if (loggedIn) { %>
+              <li style=" height: 45px;border-radius: 10px; font-weight: bold;background-color: red; color: white;display: flex; align-items: center;padding-right: 10px;padding-left: 10px;">
+                <img  src="img/profil.png" alt="to">
+                <a href=""> <%= userId %></a> 
+                <a class="toggle-dropdown-menu header-block no-decoration" href="#" aria-haspopup="true" style="margin-left:7px;color:white">
+                  <span class="point" id="dropdown-toggle" onclick="toggleDropdownMenu()">▾</span>
+                </a> 
+                <ul class="ucl" style="min-width: 200px; padding: 5px 10px;background: #fff;border: 1px solid #c8c8c8;box-shadow: 0 2px 2px 0 rgba(0,0,0,0.3);list-style: none;list-style-image: none;
+                      list-style-image: none;border-radius: 4px;position: absolute; right: 0px; top: 105px; z-index: 3; display: none;">
+                  <li><a style="color: #0078b0;font: inherit;  font-size: inherit;text-decoration: none;-webkit-transition: all 0.1s linear 0s;
+                    -moz-transition: all 0.1s linear 0s;transition: all 0.1s linear 0s" href="">Mon Profil</a></li>
+                  <li><a style="color: #0078b0;font: inherit;  font-size: inherit;text-decoration: none;-webkit-transition: all 0.1s linear 0s;
+                    -moz-transition: all 0.1s linear 0s;transition: all 0.1s linear 0s" href="">Deconnecter</a></li>
+                </ul>
+              </li>
+              <% } else { %>
+
+                <li class="ins"><a href="inscription">S'inscrires</a> </li>
+                <li class="ins"><a href="connexion">Se connecter</a> </li>
+
+              <% } %>
+                <li><a href="/voiture" id="li1">Voiture</a></li>
+                <li><a href="/chambre" id="li1">Chambres</a></li>
+                <li><a href="/home" id="li1">Accueil</a></li>
+            </ul>
+            <img src="burger.png" class="burger" id="burger">
+        </div>
+   </div>
+   <form method="POST" action="/recherchervol" class="div2" id="form1">
+        <div class="div3">
+            <label>Lieu de Depart</label>
+            <label style="margin-left: 12%;">Destination</label>
+            <label style="margin-left: 12%;">Date départ</label>
+        </div>
+        <div class="div4">
+            <input type="text" class="inp2" name="depart" placeholder="D'où partez-vous" required>
+            <input type="text" class="inp2" name="destination" placeholder="Où allez-vous" required>
+            <input type="date" class="inp2" name="date_dep" placeholder="Départ le">
+            <input type="checkbox" class="inp1"><label>Vol direct</label>
+        </div>
+        <button class="btn1">Rechercher vols</button>
+      </form>
+      <!-- <form method="POST" action="{% url 'rechercher_vol' %}" class="div2" id="form2" style="display: none;">
+        <div class="div3">
+            <input type="radio" class="inp1" id="r1" name="r1" onchange="toggleForm1()"><label>Aller-Retour</label>
+            <input type="radio" class="inp1" id="r2" name="r1" onchange="toggleForm2()" checked><label>Aller-Simple</label>
+            <input type="checkbox" class="inp1"><label>Vol direct</label>
+            <select name="" id="" class="sel1">
+                <option value="">Economique</option>
+                <option value="">Première</option>
+                <option value="">Affaire</option>
+            </select>
+        </div>
+        <div class="div4">
+            <input type="text" class="inp2" placeholder="D'où partez-vous">
+            <input type="text" class="inp2" placeholder="Où allez-vous">
+            <input type="text" class="inp2" placeholder="Départ le">
+            <select name="" id="" class="sel2">
+                <option value="">Un voyageur</option>
+                <option value="">En famille</option>
+            </select>
+        </div>
+        <input type="button" value="Rechercher vols" class="btn1">
+      </form> -->
+   <div class="div5">
+        <h1>Télécharger</h1>
+        <label>la version mobile ou tablette</label>
+        <h1>Disponible</h1>
+        <label>sur Apple Store et Play Store</label>
+        <img src="img/App-Store-Logo.jpg" class="img1">
+        <img src="img/play_store.png" class="img1">
+   </div>
+   <div class="div6">
+        <img src="img/tablette.jpg" class="img2">
+   </div>
+   <div class="div7">
+        <img src="img/flamme.png" class="img3">
+   </div>
+   <div class="div8">
+        <h1>PRIME</h1>
+        <p class="p0">MEILLEURES OFFRES</p>
+        <p class="p1">Économisez et visitez ces destinations de rêve!</p>
+   </div>
+   <div class="div9">
+        <div class="div91">
+            <p>Réserver</p>
+        </div>
+        <p class="p2">Dakar, SENEGAL</p>
+   </div>
+   <div class="div10">
+        <div class="div91">
+            <p>Réserver</p>
+        </div>
+        <p class="p2">Paris, FRANCE</p>
+   </div>
+   <div class="div11">
+        <div class="div91">
+            <p>Réserver</p>
+        </div>
+        <p class="p2">Madrid, ESPAGNE</p>
+   </div>
+   <div class="div12">
+        <div class="div91">
+            <p>Réserver</p>
+        </div>
+        <p class="p2">New York, USA</p>
+   </div>
+   <div class="div13">
+        <div class="div91">
+            <p>Réserver</p>
+        </div>
+        <p class="p2">Chefchaouen , MAROC</p>
+   </div>
+   <div class="div14">
+        <div class="div91">
+            <p>Réserver</p>
+        </div>
+        <p class="p2">Fujiyoshida, JAPON</p>
+   </div>
+   <input type="button" value="Voir plus d'offres" class="btn2">
+   <p class="p3">Compagnies Aériennes</p>
+   <div class="div15">
+        <img src="img/airS.png" class="img4">
+        <img src="img/Emirats-logo.png" class="img4">
+        <img src="img/Etihad-airways.png" class="img4">
+        <img src="img/Singapore-Airlines-Logo.png" class="img4">
+        <img src="img/Air_France.jpg" class="img4">
+        <img src="img/Logo_Royal_Air_Maroc.png" class="img4">
+   </div>
+   <div class="f">
+    <div class="f1">
+      <img class="lo" src="img/Logo.jpeg" alt="logo">
+      <div class="contact">
+        <p>Tel :  33  855  23  24 ,  (+221)  77  345  10  20</p>
+        <p>Adresse:  Av Cheikh Anta  Diop</p>
+        <p>Email:  cmdservice@gmail.com</p>
+      </div>
+      <div class="reseaux">
+        <p>Retrouvez nous sur les réseaux sociaux</p>
+        <div class="imRe">
+          <img class="i1" src="img/face.jpeg" alt="l1">
+          <img class="i2" src="img/insta.jpeg" alt="l3">
+          <img class="i3" src="img/whtsap.jpeg" alt="l2">
+          <img class="i4" src="img/twitter.jpeg" alt="l4">
+          <img class="i5" src="img/linkedin.jpeg" alt="l6">
+        </div>
+      </div>
+
+    </div>
+    <div class="f2">
+        <p class="pf21">Partenariat</p>
+        <p class="pf22">
+          <span>Aeroport Blaise Diagne</span> </br></br>
+            <span>Aeroport Lepold Sedar Senghor</span> </br></br>
+              <span>Radisson</span> </br></br>
+                <span>VDN</span> </br></br>
+                  <span>Diamniadio</span> </br></br>
+                  <span>BMW</span> </br></br>
+                    <span>FORD</span> </br>
+        </p>
+    </div>
+    <div class="f3">
+      <p class="pf31">A propos de nous</p>
+      <p class="pf32">
+        CMD est une entreprise proposant <br> 
+        un ensemble complet de services <br> 
+        comprenant la réservation de vols, <br> 
+        la location de voitures et la réservation de chambres d'hôtel. <br> 
+        Notre objectif estde rendre votre expérience <br> 
+        de voyage agréable en vous offrant des <br>
+        solutions pratiques et adaptées à vos besoins. <br>
+        Faites-nous confiance pour prendre en charge <br> 
+        tous les aspects de votre voyage afin que vous <br>
+        puissiez vous concentrer sur la découverte et la détente.
+      </p>
+    </div>
+  </div>
+  <script src="js/vol.js" async defer></script>
+</body>
+</html>

@@ -1,0 +1,280 @@
+body{
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+.d1{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: flex-start;
+}
+
+img{
+  width: 27%;
+  border-radius: 10px;
+}
+.ul{
+  width: 100%;
+  height: 300px;
+  text-align: left;
+  justify-content: left;
+  
+
+}
+.ul li{
+  display: flex;
+  flex-direction: column;
+  margin-top: -30px;
+  position: relative;
+  margin-left: 55px;
+  width: 350px;
+  color: white;
+}
+.hot{
+  font-size: 30px;
+  font-weight: bold;
+}
+
+
+.buttt{
+margin-top: -20px;
+margin-left: 5px;
+width: 100px;
+height: 35px;
+}
+
+.mont{
+  font-size: 25px;
+  font-weight: bold;
+  color: rgb(196, 76, 76);
+  position: absolute;
+  right: -50px;
+  bottom: 60px;
+
+}
+
+.modif{
+  width: 350px;
+  height: 300px;
+  background-color:rgba(68,68,68,255);
+  border: 1px solid white;
+  display:flex;
+  gap:15px;
+  position: fixed;    
+  justify-content: center;
+  display: none;
+  color: white;
+  justify-content: space-between;
+  position: fixed;
+  filter:blur();
+}
+.cham{
+  position: absolute;
+  font-size: 25px;
+  right: -40px;
+  top: 25%;
+  color:rgb(196, 76, 76); ;
+}
+h1{
+  text-align: center;
+}
+
+.div2{
+  width: 55%;
+  height: 387px;
+  background-color: rgb(5, 62, 111);
+  padding: 5px;
+  padding-bottom: 0%;
+  margin: auto;
+  border-radius: 5px;
+  margin-bottom: 50px;
+}
+
+
+.d2 {
+  width: 100%;
+  height: 96%;
+  background-color: white;
+  border-radius: 5px;
+  padding: -1% 10%; /* Ajuster le padding pour centrer l'image */
+}
+
+.img4 {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.v1{
+  float: left;
+  color: white;
+  font-size: 30px;
+}
+
+.v4{
+  float: left;
+  color: white;
+  font-size: 30px;
+}
+
+
+
+.div1{
+    width: 100%;
+    height: 120px;
+    background-color: rgba(118, 114, 116, 0.5);
+    display: flex;
+    justify-content: space-between;
+}
+ul li{
+    display: inline;
+    list-style-type: none;
+    float: right;
+    margin-right: 15px;
+    font-size: 20px;
+    margin-top: 40px;
+    
+}
+ul li a{
+    color: white;
+    text-decoration: none;
+}
+.ins{
+    margin-top: 20px;
+    background-color: #7D9878;
+    border-radius: 25px;
+    padding: 15px;
+}
+
+.logo{
+  width: 170px;
+}
+
+.etoil{
+  width: 20px;
+  height: 20px;
+}
+
+.etoi{
+  position: absolute;
+  top: 25%;
+}
+.btn{
+  width: 120px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border-radius: 7px;
+  background-color: orange;
+  color:white;
+  position: absolute;
+  bottom: 5px;
+  left: 20px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.descr{
+  color: black;
+  position: absolute;
+  top: 45%;
+}
+
+.non{
+  font-size: 25px;
+  text-align: center;
+
+  
+}
+
+
+
+
+
+form{
+  padding-top: 10px;
+  display: none;
+  position: relative; /* Remplacer "absolute" par "relative" */
+  width: 15%;
+  height: 30%;
+  padding-top: 10px;
+  background-color: rgba(68,68,68,255);
+  border-radius: 15px;
+  z-index: 3;
+  left: 50%; /* Centrer horizontalement */
+  top: 40%; 
+  transform: translate(-50%, -50%); /* Ajuster la position centrée */
+  
+}
+div{
+  display: flex;
+  justify-content: space-between;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 12px;
+  
+}
+h1{
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+label,input,textarea{
+  width: 40%;
+  background-color: #e4bebe;
+  text-align: initial;
+}
+.butt{
+      margin-bottom: 10px;
+      padding: 12px;
+      border-radius: 10px;
+      position: absolute;
+      left: 5px;
+      background-color: #4c984f;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      bottom: 0;
+
+}
+input{
+  border: solid 1px black;
+  border-radius: 7px;
+  height: 45px;
+  color: black;
+  background-color: white;
+  width: 190px;
+}
+
+.but{
+  border: solid 1px black;
+  border-radius: 7px;
+  height: 45px;
+  color: black;
+  background-color: white;
+}
+
+.annuler{
+  margin-bottom: 10px;
+  padding: 12px;
+  border-radius: 10px;
+  position: absolute;
+
+  left: 90px;
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  bottom: 0;
+  cursor: pointer;
+}
+
+.h11{
+  font-size: 30px;
+  margin-top: 15px;
+}
+.paye{
+width: 60px;
+height: 40px;
+}

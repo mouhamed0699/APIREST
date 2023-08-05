@@ -1,0 +1,56 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Easiest Way to Add Input Masks to Your Forms</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="inscription1.css">
+</head>
+<body>
+    <div class="registration-form">
+        <form method="POST" action="/api/inscription" class='for'>
+            <p class="err">Veuillez regarder les mots de passe </p>
+            <div class="form-icon">
+                <h2>Inscription</h2>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control item" id="prenom" placeholder="Prenom" name="prenom"required>
+            </div>
+            <div class="form-group">
+               <input type="text" class="form-control item" id="nom" placeholder="Nom"  name="nom" required>
+           </div>
+            <div class="form-group">
+                <input type="email" class="form-control item" id="email" name="email" placeholder="email" required>
+            </div>
+            <!-- <div class="form-group">
+                <input type="Tel" class="form-control item" id="numero" name="tel" placeholder="Numero" required>
+            </div> -->
+            <div class="form-group">
+                <input type="password" class="form-control item" id="motdepasse" name="password1" placeholder="Mot de passe">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control item" id="confirm_mdp" name="password2" placeholder="Confirmer mot de passe">
+            </div>
+            <div class="dd">
+
+                <button  class="create-account">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Creer Compte</button>
+            </div>
+
+            <p class="red">Vous avez déjà un Compte? <a href="connexion">Connexion</a></p>
+
+        </form>
+
+    </div>
+    <Script src="INSCRIPTION.js"></Script>
+</body>
+</html>
